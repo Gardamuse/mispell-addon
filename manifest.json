@@ -1,0 +1,34 @@
+{
+	"manifest_version": 2,
+	"name": "mispell-addon",
+	"description": "Misspells the text on webpages.",
+	"version": "0.1.0",
+	"icons": {
+		"64": "icons/icon.png"
+	},
+	"background": {
+		"scripts": [
+			"background_script.js"
+		]
+	},
+	"content_scripts": [
+		{
+			"matches": [
+				"*://*.mozilla.org/*"
+			],
+			"js": [
+				"content_script.js"
+			]
+		}
+	],
+	"browser_action": {
+		"default_icon": {
+			"64": "icons/icon.png"
+		},
+		"default_popup": "browserAction/index.html",
+		"default_title": "mispell-addon"
+	},
+	"options_ui": {
+		"page": "options/index.html"
+	}
+}
