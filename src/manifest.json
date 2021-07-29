@@ -4,7 +4,7 @@
 	"description": "Misspells the text on webpages.",
 	"version": "0.1.0",
 	"icons": {
-		"64": "icons/icon.png"
+		"64": "icon.png"
 	},
 	"background": {
 		"scripts": [
@@ -14,7 +14,7 @@
 	"content_scripts": [
 		{
 			"matches": [
-				"*://*.mozilla.org/*"
+				"<all_urls>"
 			],
 			"js": [
 				"content_script.js"
@@ -23,7 +23,7 @@
 	],
 	"browser_action": {
 		"default_icon": {
-			"64": "icons/icon.png"
+			"64": "icon.png"
 		},
 		"default_popup": "browserAction/index.html",
 		"default_title": "mispell-addon"
