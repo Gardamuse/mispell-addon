@@ -3,6 +3,7 @@
 	"name": "mispell-addon",
 	"description": "Misspells the text on webpages.",
 	"version": "0.1.0",
+	"permissions": ["storage"],
 	"icons": {
 		"64": "icon.png"
 	},
@@ -25,10 +26,15 @@
 		"default_icon": {
 			"64": "icon.png"
 		},
-		"default_popup": "browserAction/index.html",
+		"default_popup": "browserAction.html",
 		"default_title": "mispell-addon"
 	},
 	"options_ui": {
-		"page": "options/index.html"
+		"page": "options.html"
+	},
+	"browser_specific_settings": {
+		"gecko": {
+			"id": "mispell-addon@blushingdefeat.com"
+		}
 	}
 }
