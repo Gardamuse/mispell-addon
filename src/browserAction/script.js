@@ -1,25 +1,22 @@
-document.getElementById('myHeading').style.color = 'blue'
-function saveOptions(e) {
-    console.log("Saving options")
+import {AddonSettings} from "../addon_settings";
+
+async function saveOptions(e) {
+    let settingState = await browser.storage.local.get('settings');
+    let settings = new AddonSettings(settingState.settings)
+    settings.iq = document.querySelector("#iq-slider").value
     browser.storage.local.set({
-        colour: document.querySelector("#colour").value
+        settings: settings
     });
     e.preventDefault();
     restoreOptions()
 }
 
-function restoreOptions() {
-    console.log("Restoring options")
-    var storageItem = browser.storage.local.get('colour');
-    storageItem.then((res) => {
-        document.querySelector("#managed-colour").innerText = res.colour;
-    });
-
-    var gettingItem = browser.storage.local.get('colour');
-    gettingItem.then((res) => {
-        document.querySelector("#colour").value = res.colour || 'Firefox red';
-    });
+async function restoreOptions() {
+    let settingState = await browser.storage.local.get('settings');
+    let settings = new AddonSettings(settingState.settings)
+    document.querySelector("#managed-colour").innerText = settings.iq;
 }
 
 document.addEventListener('DOMContentLoaded', restoreOptions);
 document.querySelector("form").addEventListener("submit", saveOptions);
+document.querySelector("#iq-slider").addEventListener("input", saveOptions);

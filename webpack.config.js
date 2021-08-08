@@ -12,7 +12,7 @@ module.exports = {
     },
     entry: {
         background_script: './src/background_script.js',
-        content_script: './src/content_script.js',
+        content_script: './src/content_script.ts',
         options_script: './src/options/script.js',
         browser_action_script: './src/browserAction/script.js'
     },
