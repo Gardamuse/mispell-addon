@@ -1,8 +1,12 @@
+// @ts-ignore
+import {mispell} from "mispell/dist/mispell.node";
+
 export class AddonSettings {
     private iqMin = 40
     private iqMax = 140
 
     bimbofactor: number
+    mode: string
 
     constructor(state: any) {
         if (state == undefined) {
@@ -11,6 +15,7 @@ export class AddonSettings {
         }
 
         this.bimbofactor = state.bimbofactor || 0.0
+        this.mode = state.mode || "bimbofy"
     }
 
     set iq(value: number) {
@@ -20,5 +25,15 @@ export class AddonSettings {
 
     get iq(): number {
         return Math.round((1 - this.bimbofactor) * (this.iqMax - this.iqMin) + this.iqMin)
+    }
+
+    transform(text: string): string {
+        if (this.mode === "bimbofy") {
+            return mispell.bimbofy(text, this.bimbofactor)
+        } else if (this.mode === "scramble") {
+            return mispell.scramble(text, this.bimbofactor)
+        } else {
+            console.error(`Bad mode in mispell: "${this.mode}"`)
+        }
     }
 }

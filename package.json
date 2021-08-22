@@ -4,7 +4,7 @@
   "description": "Browser addon of the Mispell library that misspells webpages.",
   "main": "background_script.js",
   "dependencies": {
-    "mispell": "^1.3.8"
+    "mispell": "^2.0.0"
   },
   "devDependencies": {
     "clean-webpack-plugin": "^4.0.0-alpha.0",

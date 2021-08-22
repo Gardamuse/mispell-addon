@@ -5,7 +5,7 @@ const path = require("path");
 
 module.exports = merge(common, {
     mode: 'development',
-    devtool: 'inline-source-map',
+    devtool: 'source-map',
     plugins: [
         new WebExtPlugin({
             sourceDir: path.resolve(__dirname, 'dist'),

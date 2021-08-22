@@ -1,10 +1,7 @@
-// @ts-ignore
-import {mispell} from "mispell/dist/mispell.node";
-
 import {AddonSettings} from "./addon_settings";
 
 function replaceText(text: string, settings: AddonSettings) {
-    return mispell.bimbofy(text, settings.bimbofactor || 0)
+    return settings.transform(text)
 }
 
 // Replace static content
@@ -18,7 +15,7 @@ function getElements(tagNames: string[]) {
 }
 
 function onPageLoad(settings: AddonSettings) {
-    console.log("OnPageLoad options", settings, Math.random())
+    //console.log("OnPageLoad options", settings, Math.random())
     let elements = getElements(["p", "h1", "h2", "h3", "h4", "h5", "h6", "span", "div"])
     for (let element of elements) {
         for (let node of element.childNodes) {
