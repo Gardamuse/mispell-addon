@@ -15,7 +15,23 @@ module.exports = {
         browser_action_script: './src/browserAction/script.js'
     },
     module: {
-        rules: [{ test: /\.tsx?$/, use: 'ts-loader', exclude: /node_modules/ }],
+        rules: [
+            { test: /\.tsx?$/, use: 'ts-loader', exclude: /node_modules/ },
+            {
+                test: /\.s[ac]ss$/i,
+                use: [
+                    "style-loader",
+                    "css-loader",
+                    {
+                        loader: "sass-loader",
+                        options: {
+                            // Prefer `dart-sass`
+                            implementation: require.resolve("sass"),
+                        },
+                    },
+                ],
+            },
+        ],
     },
     resolve: {
         extensions: ['.ts', '.js'],

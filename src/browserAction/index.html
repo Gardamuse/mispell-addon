@@ -2,22 +2,22 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <link href="style.css" rel="stylesheet" />
+    <link href="style.scss" rel="stylesheet" />
     <!--<script type="application/javascript" src="browser-polyfill.js"></script>-->
   </head>
   <body>
-    <h2 id="myHeading">Mispell</h2>
-    <form>
+    <div class="popup">
+      <h2 id="title">Mispell</h2>
+
       <label>IQ <b id="iq-indicator">no value found</b></label>
       <input type="range" id="iq-slider" min="40" max="140">
-      <label for="modes">Mode</label>
 
+      <label for="modes">Mode</label>
       <select name="modes" id="modes">
         <option value="bimbofy">Bimbofy</option>
         <option value="scramble">Scramble</option>
       </select>
-    </form>
+    </div>
     <script src="script.js"></script>
-    <checkbox></checkbox>
   </body>
 </html>

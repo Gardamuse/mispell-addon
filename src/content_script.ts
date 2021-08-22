@@ -15,6 +15,9 @@ function getElements(tagNames: string[]) {
 }
 
 function onPageLoad(settings: AddonSettings) {
+    // Iterating over all elements take time. Just skip it if bimbofactor is very low.
+    if (settings.bimbofactor < 0.01) return
+
     //console.log("OnPageLoad options", settings, Math.random())
     let elements = getElements(["p", "h1", "h2", "h3", "h4", "h5", "h6", "span", "div"])
     for (let element of elements) {
