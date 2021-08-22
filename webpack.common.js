@@ -5,9 +5,6 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const WebExtPlugin = require('web-ext-plugin');
 
 module.exports = {
-    mode: 'production',
-    //mode: 'development',
-    devtool: 'cheap-module-source-map',
     performance: {
         maxEntrypointSize: 512000,
         maxAssetSize: 512000,
@@ -33,12 +30,7 @@ module.exports = {
                 { from: './src/manifest.json' },
                 { from: './src/icons/icon.png' },
             ],
-        }),
-        new WebExtPlugin({
-            sourceDir: path.resolve(__dirname, 'dist'),
-            firefoxProfile: 'gard',
-            startUrl: 'https://www.blushingdefeat.com',
-        }),
+        })
     ],
     output: { filename: '[name].js', path: path.resolve(__dirname, 'dist') }
 };
