@@ -1,5 +1,6 @@
 // @ts-ignore
-import mispell from "mispell/dist/mispell.node";
+import {mispell} from "mispell/dist/mispell.node";
+
 import {AddonSettings} from "./addon_settings";
 
 function replaceText(text: string, settings: AddonSettings) {

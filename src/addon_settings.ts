@@ -5,6 +5,11 @@ export class AddonSettings {
     bimbofactor: number
 
     constructor(state: any) {
+        if (state == undefined) {
+            console.warn("Mispell save state was undefined.")
+            state = {}
+        }
+
         this.bimbofactor = state.bimbofactor || 0.0
     }
 

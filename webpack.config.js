@@ -6,6 +6,8 @@ const WebExtPlugin = require('web-ext-plugin');
 
 module.exports = {
     mode: 'production',
+    //mode: 'development',
+    devtool: 'cheap-module-source-map',
     performance: {
         maxEntrypointSize: 512000,
         maxAssetSize: 512000,
