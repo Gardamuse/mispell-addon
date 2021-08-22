@@ -21,3 +21,4 @@ async function restoreOptions() {
 document.addEventListener('DOMContentLoaded', restoreOptions);
 document.querySelector("form").addEventListener("submit", saveOptions);
 document.querySelector("#iq-slider").addEventListener("input", saveOptions);
+document.querySelector("#iq-slider").addEventListener("change", () => {browser.tabs.reload()});
