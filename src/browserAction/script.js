@@ -14,7 +14,7 @@ async function saveOptions(e) {
 async function restoreOptions() {
     let settingState = await browser.storage.local.get('settings');
     let settings = new AddonSettings(settingState.settings)
-    document.querySelector("#iq-indicator").innerText = settings.iq;
+    document.querySelector("#iq-indicator").innerText = settings.iq.toString().padStart(3, "0");
     document.querySelector("#iq-slider").value = settings.iq;
 }
 
