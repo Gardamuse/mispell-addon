@@ -2,7 +2,7 @@
 	"manifest_version": 2,
 	"name": "mispell-addon",
 	"description": "Misspells text on webpages to make it sound more like what a stereotypical 'bimbo' might write. The 'Scramble' mode instead scrambles complicated words and numbers to make them difficult to understand. How much text is changes is adjusted by an 'IQ' slider, with more change the lower the 'IQ'. At max 'IQ' the extension won't do anything. When not at max 'IQ' the extension will cause pages with a lot of text to be unresponsive on load for a bit, since it takes a long time to go over and change all the text.",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"permissions": ["storage"],
 	"icons": {
 		"64": "icon64.png"
