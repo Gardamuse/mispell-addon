@@ -13,6 +13,36 @@ function getElements(tagNames: string[]) {
     }
     return elements
 }
+let recentReplaced: string[] = []
+let recentReplacedVip: string[] = []
+
+function shouldModifyText(text: string): boolean {
+    let shouldModify = true
+
+    if (text == null || text.length < 4) {
+        shouldModify = false
+    } else {
+        for (let s of recentReplaced.concat(recentReplacedVip)) {
+            // If the text is of almost equal length AND begins or starts with the same 2 letters
+            // then it is probably a text field that is being edited by the user, so it should not be modified
+            if (Math.abs(s.length - text.length) <= 2 &&
+                (s.substr(0, 2) == text.substr(0, 2) ||
+                s.substr(s.length-2, 2) == text.substr(text.length-2, 2))) {
+
+                recentReplacedVip.push(text)
+                if (recentReplacedVip.length > 10) recentReplacedVip.shift()
+
+                shouldModify = false
+                break
+            }
+
+        }
+    }
+
+    recentReplaced.push(text)
+    if (recentReplaced.length > 10) recentReplaced.shift()
+    return shouldModify
+}
 
 function onPageLoad(settings: AddonSettings) {
     // Iterating over all elements take time. Just skip it if bimbofactor is very low.
@@ -41,6 +71,10 @@ function onPageLoad(settings: AddonSettings) {
                     let treeWalker = document.createTreeWalker(addedNode, NodeFilter.SHOW_TEXT)
                     let textNode
                     while (textNode = treeWalker.nextNode()) {
+                        if (!shouldModifyText(textNode.textContent)) {
+                            continue
+                        }
+                        
                         let text = textNode.nodeValue
                         textNode.nodeValue = replaceText(text, settings)
                     }
