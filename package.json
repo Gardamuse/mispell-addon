@@ -1,6 +1,6 @@
 {
   "name": "mispell-addon",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Browser addon of the Mispell library that misspells webpages.",
   "main": "background_script.js",
   "dependencies": {
