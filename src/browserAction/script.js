@@ -1,5 +1,6 @@
 import {AddonSettings} from "../addon_settings";
 import "./style.scss";
+let browser = require("webextension-polyfill")
 
 async function saveOptions(e) {
     let settingState = await browser.storage.local.get('settings');
