@@ -9,7 +9,8 @@ export class AddonSettings {
     mode: string
 
     constructor(state: any) {
-        if (state == undefined) {
+        console.log("Construction Addon Settings")
+        if (state == undefined || !('bimbofactor' in state)) {
             console.warn("Mispell save state was undefined.")
             state = {}
         }

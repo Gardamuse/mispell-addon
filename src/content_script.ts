@@ -85,8 +85,10 @@ function onPageLoad(settings: AddonSettings) {
     }).observe(document, {childList: true, subtree: true})
 }
 
-// @ts-ignore
-browser.storage.local.get('settings', (settingState: any) => {
+async function startAddon() {
+    let settingState: any = await browser.storage.local.get('settings')
     let settings = new AddonSettings(settingState.settings)
     onPageLoad(settings)
-});
+}
+
+startAddon()
