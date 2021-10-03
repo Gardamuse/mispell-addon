@@ -1,4 +1,5 @@
 import {AddonSettings} from "./addon_settings";
+let browser = require("webextension-polyfill")
 
 function replaceText(text: string, settings: AddonSettings) {
     return settings.transform(text)

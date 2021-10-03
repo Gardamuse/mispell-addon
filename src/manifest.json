@@ -2,7 +2,7 @@
 	"manifest_version": 2,
 	"name": "mispell-addon",
 	"description": "Changes and misspells all text on websites to make it seem like it was written by a \"bimbo\".",
-	"version": "0.1.2",
+	"version": "0.1.3",
 	"permissions": ["storage"],
 	"icons": {
 		"64": "icon64.png"

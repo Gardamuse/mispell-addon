@@ -18,6 +18,7 @@ async function restoreOptions() {
     let settings = new AddonSettings(settingState.settings)
     document.querySelector("#iq-indicator").innerText = settings.iq;
     document.querySelector("#iq-slider").value = settings.iq;
+    document.querySelector("#modes").value = settings.mode;
 }
 
 document.addEventListener('DOMContentLoaded', restoreOptions);
