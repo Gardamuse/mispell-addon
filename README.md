@@ -24,3 +24,6 @@ web-ext sign --api-key=$WEB_EXT_API_KEY --api-secret=$WEB_EXT_API_SECRET
 A ctx file is now created in `dist/web-ext-artifacts/`. This is the Firefox version of the addon and can be self-hosted.
 
 To submit to the Chrome web store, after running the steps above, in the `dist` folder, edit `manifest.json` by removing the `update-url` key (this key is only to allow self-update for Firefox self-publishing). Then zip everything in the `dist` folder except the `web-ext-artifacts` folder. Now submit the zip file.
+
+## Development
+Run `npm run serve` to start live reload session of the extension.

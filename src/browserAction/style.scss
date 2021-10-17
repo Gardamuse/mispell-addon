@@ -1,5 +1,6 @@
 body {
   background: #25252c;
+  min-width: 170px;
 }
 
 #title {
@@ -11,4 +12,9 @@ body {
   color: #fff;
 
   display: grid;
+}
+
+#version {
+  font-size: 12px;
+  color: white;
 }
