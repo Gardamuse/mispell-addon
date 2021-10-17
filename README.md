@@ -12,6 +12,16 @@ The addon needs to save user settings like to what degree text should be changed
 
 The addon needs to run its content script on all websites on which it is to function, since it needs access to all text on those websites in order to edit it.
 
+## Development
+Run `npm run serve` to start live reload session of the extension.
+
+### Version update
+Version has to be updated in multiple places:
+
+* Run `npm version x.y.z`.
+* Set version number in `src/manifest.json`.
+* Set version number in `src/browserAction/index.html`.
+
 ## Building
 To build the addon, run the following (after setting the environment variables that appear below):
 
@@ -24,6 +34,3 @@ web-ext sign --api-key=$WEB_EXT_API_KEY --api-secret=$WEB_EXT_API_SECRET
 A ctx file is now created in `dist/web-ext-artifacts/`. This is the Firefox version of the addon and can be self-hosted.
 
 To submit to the Chrome web store, after running the steps above, in the `dist` folder, edit `manifest.json` by removing the `update-url` key (this key is only to allow self-update for Firefox self-publishing). Then zip everything in the `dist` folder except the `web-ext-artifacts` folder. Now submit the zip file.
-
-## Development
-Run `npm run serve` to start live reload session of the extension.

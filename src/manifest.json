@@ -2,7 +2,7 @@
 	"manifest_version": 2,
 	"name": "Mispell",
 	"description": "Changes and misspells all text on websites to make it seem like it was written by a \"bimbo\".",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"permissions": ["storage"],
 	"update_url": "https://www.blushingdefeat.com/projects/mispell/mispell_addon.xpi",
 	"icons": {
