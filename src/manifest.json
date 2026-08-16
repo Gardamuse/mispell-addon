@@ -1,40 +1,32 @@
 {
-	"manifest_version": 2,
-	"name": "Mispell",
-	"description": "Changes and misspells all text on websites to make it seem like it was written by a \"bimbo\".",
-	"version": "1.0.4",
-	"permissions": ["storage"],
-	"icons": {
-		"64": "icon64.png"
-	},
-	"background": {
-		"scripts": [
-			"background_script.js"
-		]
-	},
-	"content_scripts": [
-		{
-			"matches": [
-				"<all_urls>"
-			],
-			"js": [
-				"content_script.js"
-			]
-		}
-	],
-	"browser_action": {
-		"default_icon": {
-			"64": "icon64.png"
-		},
-		"default_popup": "browserAction.html",
-		"default_title": "mispell-addon"
-	},
-	"options_ui": {
-		"page": "options.html"
-	},
-	"browser_specific_settings": {
-		"gecko": {
-			"update_url": "https://www.blushingdefeat.com/projects/mispell/mispell_addon.xpi"
-		}
-	}
+  "manifest_version": 3,
+  "name": "Mispell",
+  "description": "Changes and misspells all text on websites to make it seem like it was written by a \"bimbo\".",
+  "version": "1.0.4",
+  "permissions": [
+    "storage"
+  ],
+  "icons": {
+    "64": "icon64.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content_script.js"
+      ]
+    }
+  ],
+  "action": {
+    "default_icon": {
+      "64": "icon64.png"
+    },
+    "default_popup": "browserAction.html",
+    "default_title": "Mispell"
+  },
+  "options_ui": {
+    "page": "options.html"
+  }
 }
